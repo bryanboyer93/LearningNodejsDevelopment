@@ -5,8 +5,8 @@ module.exports.addNote = () => {
     return 'New Note';
 }
 
-module.exports.add = (a,b) => {
-    return a+b;
-}
+// module.exports.add = (a,b) => {
+//     return a+b;
+// }
 
-module.exports.age = 25;
+// module.exports.age = 25;
