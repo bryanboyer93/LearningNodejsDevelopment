@@ -2,27 +2,28 @@ console.log('Starting app.js');
 
 const fs = require('fs');
 const _ = require('lodash');
+const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-var command = process.argv[2];
-
+// yargs.argv is where yargs stores its version of the arguments that the app ran with
+const argv = yargs.argv;
+var command = argv._[0];
 console.log(`Command: ${command}`);
-
-console.log(process.argv);
+console.log('Yargs', argv);
 
 switch (command) {
     case 'add' :
-        console.log('Adding new note');
+        notes.addNote(argv.title, argv.body);
         break;
     case 'list' :
-        console.log('Listing all notes');
+        notes.getAll();
         break;
     case 'read' :
-        console.log('Fetching note');
+        notes.getNote(argv.title);
         break;
     case 'remove' :
-        console.log('Removing note');
+        notes.removeNote(argv.title);
         break;
     default :
         console.log ('Invalid command');
@@ -58,3 +59,5 @@ switch (command) {
 //     if (err) throw err;
 //     // console.log('The "data to append" was appended to the file!');
 // });
+
+// Modules installed: yargs, no

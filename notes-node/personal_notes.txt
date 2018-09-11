@@ -1,0 +1,1 @@
+If I leave off the save flag, yargs will get installed into the node_modules folder, but if we wipe that node_modules folder later and run npm install, yargs won't get reinstalled because it's not listed in the package.json file. This is why we use the save flag.
