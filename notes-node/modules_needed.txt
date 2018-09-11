@@ -1,0 +1,4 @@
+yargs
+nodemon
+
+modules live here: C:\Users\C273476\AppData\Roaming\npm

@@ -1,13 +1,47 @@
 console.log('Starting app.js');
 
 const fs = require('fs');
-// const os = require('os');
 const _ = require('lodash');
+
 const notes = require('./notes.js');
 
+var command = process.argv[2];
+
+console.log(`Command: ${command}`);
+
+console.log(process.argv);
+
+switch (command) {
+    case 'add' :
+        console.log('Adding new note');
+        break;
+    case 'list' :
+        console.log('Listing all notes');
+        break;
+    case 'read' :
+        console.log('Fetching note');
+        break;
+    case 'remove' :
+        console.log('Removing note');
+        break;
+    default :
+        console.log ('Invalid command');
+        break;
+}
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------
+
+// const os = require('os');
+
 // console.log('Result:', notes.add(9, -2));
-
-
 
 // lodash isString()
 // console.log(_.isString(true));
