@@ -1,7 +1,49 @@
+const fs = require('fs');
+
 console.log('Starting notes.js');
 
-var addNote = (title,body) => {
-    console.log('Adding note',title, body);
+
+
+var addNote = (title, body) => {
+    var notes = fetchNotes();
+    var note = {
+        title,
+        body
+    }
+
+    // var duplicateNotes = notes.filter( (note) => {
+    //     return note.title === title;
+    // });
+
+    //Arrow functions actually allow you to remove the curly 
+    // braces if you only have one statement.
+    // filter takes a function that will be applied to each array element
+    // if the function applied to that element returns true, that
+    // element will be included in the filter and added to the new Array
+    var duplicateNotes = notes.filter((notesElement) => notesElement.title === title);
+
+    // same as the line above.
+    // Side note: title is the function parameter
+    // var duplicateNotes = notes.filter (function (notesElement) {
+    //     if (notesElement.title === title)
+    //         return true;
+    //     else
+    //         return false;
+    // })
+
+    
+
+    if (duplicateNotes.length === 0) {
+        // Adds an element to the end of the array
+        notes.push(note);
+        saveNotes(notes);
+    }
+    else {
+        console.log(`The note title "${duplicateNotes[0].title}" already exists`);
+    }0
+
+
+
 }
 
 var getAll = () => {
@@ -14,6 +56,20 @@ var getNote = (title) => {
 
 var removeNote = (title) => {
     console.log(`Removing note: ${title}`);
+}
+
+var fetchNotes = () => {
+    try {
+        var notesString = fs.readFileSync('notes-data.json');
+        return JSON.parse(notesString);
+    }
+    catch (e) {
+        return [];
+    }
+}
+
+var saveNotes = (notes) => {
+    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
 
 module.exports = {

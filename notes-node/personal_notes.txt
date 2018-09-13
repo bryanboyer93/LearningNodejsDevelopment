@@ -1,1 +1,19 @@
 If I leave off the save flag, yargs will get installed into the node_modules folder, but if we wipe that node_modules folder later and run npm install, yargs won't get reinstalled because it's not listed in the package.json file. This is why we use the save flag.
+
+The filter method is an array method that takes a callback. We'll use an arrow function, and that callback will get called with the argument. In this case, it will be the singular version; if I have an array of notes, it will be called with an individual note:
+var duplicateNotes = notes.filter((note) => {
+
+});
+This function gets called once for every item in the array, and you have the opportunity to return either true or false. If you return true, it will keep that item in the array, which will eventually get saved into duplicateNotes. If you return false, the new array it generates will not have that item inside duplicateNotes variable. All we want to do is to return true if the titles match, which means that we can return note.title === title, as shown here:
+
+var duplicateNotes = notes.filter((note) => {
+  return note.title === title;
+});
+
+If the titles are equal, then the preceding return statement will result as true and the item will be kept in the array, which means that there are duplicate notes. If the titles are not equal, which is most likely the case, the statement will result as false, which means that there are no duplicate notes. Now, we can simplify this a little more using arrow functions.
+
+Arrow functions actually allow you to remove the curly braces if you only have one statement.
+I'll use the arrow function, as shown here:
+
+var duplicateNotes = notes.filter((note) => note.title === title);
+
