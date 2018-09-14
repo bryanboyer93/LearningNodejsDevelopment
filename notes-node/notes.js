@@ -37,10 +37,11 @@ var addNote = (title, body) => {
         // Adds an element to the end of the array
         notes.push(note);
         saveNotes(notes);
+        return(note);
     }
-    else {
-        console.log(`The note title "${duplicateNotes[0].title}" already exists`);
-    }0
+    // else {
+    //     console.log(`The note title "${duplicateNotes[0].title}" already exists`);
+    // }
 
 
 
@@ -55,7 +56,21 @@ var getNote = (title) => {
 }
 
 var removeNote = (title) => {
-    console.log(`Removing note: ${title}`);
+    // fetch notes
+    // filter notes, removing the one with title of argument
+    // save new notes array
+
+    var notes = fetchNotes();
+    // filter notes, removing the one with title of argument
+    var filteredNotes = notes.filter ( (notesElement) => notesElement.title !== title);
+    // save new notes array
+    if (filteredNotes.length === notes.length)
+        console.log(`Note with title "${title}" not found`);
+    else {
+        console.log(`Note with title "${title}" removed`);
+        saveNotes(filteredNotes);
+        
+    }
 }
 
 var fetchNotes = () => {
