@@ -52,7 +52,10 @@ var getAll = () => {
 }
 
 var getNote = (title) => {
-    console.log('Getting note', title);
+    // console.log('Getting note', title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter ( (notesElement) => notesElement.title === title);
+    return filteredNotes[0];
 }
 
 var removeNote = (title) => {
@@ -64,13 +67,16 @@ var removeNote = (title) => {
     // filter notes, removing the one with title of argument
     var filteredNotes = notes.filter ( (notesElement) => notesElement.title !== title);
     // save new notes array
-    if (filteredNotes.length === notes.length)
-        console.log(`Note with title "${title}" not found`);
-    else {
-        console.log(`Note with title "${title}" removed`);
-        saveNotes(filteredNotes);
+    // if (filteredNotes.length === notes.length)
+    //     console.log(`Note with title "${title}" not found`);
+    // else {
+    //     console.log(`Note with title "${title}" removed`);
+    //     saveNotes(filteredNotes);
         
-    }
+    // }
+
+    saveNotes(filteredNotes);
+    return notes.length !== filteredNotes.length;
 }
 
 var fetchNotes = () => {
@@ -83,6 +89,13 @@ var fetchNotes = () => {
     }
 }
 
+var logNote = (note) => {
+    console.log("--");
+    console.log(`Title: ${note.title} `);
+    console.log(`Body: ${note.body}`);
+    console.log("--");
+}
+
 var saveNotes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 }
@@ -91,7 +104,8 @@ module.exports = {
     addNote: addNote,
     getAll: getAll,
     getNote: getNote,
-    removeNote
+    removeNote,
+    logNote: logNote
     // if name and function are the same
     // addNote,
     // getAll

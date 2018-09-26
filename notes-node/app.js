@@ -16,7 +16,7 @@ switch (command) {
     case 'add' :
         var note = notes.addNote(argv.title, argv.body);
         if (note) 
-            console.log(`Note Created, Title: ${note.title} - Body: ${note.body}`);
+            notes.logNote(note);
         else
             console.log('Note title taken');
         break;
@@ -24,10 +24,22 @@ switch (command) {
         notes.getAll();
         break;
     case 'read' :
-        notes.getNote(argv.title);
+        // notes.getNote(argv.title);
+        var note = notes.getNote(argv.title);
+        if (note === undefined)
+            console.log('note not found');
+        else
+            notes.logNote(note);
+        
+        // Same functionality but not using undefined data type
+        // if (note) console.log(`Title: ${note.title} Body: ${note.body}`);
+        // else console.log('Note not found');
+
         break;
     case 'remove' :
-        notes.removeNote(argv.title);
+        var noteRemoved = notes.removeNote(argv.title);
+        var message = noteRemoved ? 'Note was removed' : 'Note not found';
+        console.log (message);
         break;
     default :
         console.log ('Invalid command');
