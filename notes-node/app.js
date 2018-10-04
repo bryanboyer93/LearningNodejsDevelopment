@@ -5,27 +5,26 @@ const _ = require('lodash');
 const yargs = require('yargs');
 
 const notes = require('./notes.js');
-
+const titleOptions = {
+    describe: 'Title of note',
+    demand: true,
+    alias: 't'
+};
+const bodyOptions = {
+    describe: 'Body of note',
+    demand: true,
+    alias: 'b'
+};
 // yargs.argv is where yargs stores its version of the arguments that the app ran with
 const argv = yargs
     .command('add', 'Add a new note', {
-        title: {
-            describe: 'Title of note',
-            demand: true,
-            alias: 't'
-        },
-        body: {
-            describe: 'Body of note',
-            demand: true,
-            alias: 'b'
-        }
+        title: titleOptions,
+        body: bodyOptions
     })
     .command('list','List all notes')
     .command('read','Read a note', {
-        describe: 'Title of note',
-        demand: true,
-        alias: 't'
-    })
+        title: titleOptions
+    }) 
     .command('remove', 'Remove a note', {
         title: titleOptions
     })
