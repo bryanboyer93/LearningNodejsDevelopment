@@ -1,4 +1,4 @@
-console.log('Starting app.js');
+// console.log('Starting app.js');
 
 const fs = require('fs');
 const _ = require('lodash');
@@ -7,10 +7,34 @@ const yargs = require('yargs');
 const notes = require('./notes.js');
 
 // yargs.argv is where yargs stores its version of the arguments that the app ran with
-const argv = yargs.argv;
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title: {
+            describe: 'Title of note',
+            demand: true,
+            alias: 't'
+        },
+        body: {
+            describe: 'Body of note',
+            demand: true,
+            alias: 'b'
+        }
+    })
+    .command('list','List all notes')
+    .command('read','Read a note', {
+        describe: 'Title of note',
+        demand: true,
+        alias: 't'
+    })
+    .command('remove', 'Remove a note', {
+        title: titleOptions
+    })
+    .help()
+    .argv;
+    
 var command = argv._[0];
-console.log(`Command: ${command}`);
-console.log('Yargs', argv);
+// console.log(`Command: ${command}`);
+// console.log('Yargs', argv);
 
 switch (command) {
     case 'add' :
@@ -21,7 +45,20 @@ switch (command) {
             console.log('Note title taken');
         break;
     case 'list' :
-        notes.getAll();
+        var allNotes = notes.getAll();
+        console.log(`Printing ${allNotes.length} note(s). `);
+        
+        allNotes.forEach( (note) => notes.logNote(note));
+
+        // Not simplified version
+        // allNotes.foreach((element) => {
+        //     notes.logNote(element)
+        // });
+
+        // not using arrow function
+        // allNotes.foreach ( function (note) {
+        //     notes.logNote(note);
+        // });
         break;
     case 'read' :
         // notes.getNote(argv.title);

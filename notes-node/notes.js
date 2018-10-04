@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-console.log('Starting notes.js');
+// console.log('Starting notes.js');
 
 
 
@@ -48,7 +48,7 @@ var addNote = (title, body) => {
 }
 
 var getAll = () => {
-    console.log('Getting all notes');
+    return fetchNotes();
 }
 
 var getNote = (title) => {
@@ -82,6 +82,7 @@ var removeNote = (title) => {
 var fetchNotes = () => {
     try {
         var notesString = fs.readFileSync('notes-data.json');
+        //JSON.parse to convert string to json object
         return JSON.parse(notesString);
     }
     catch (e) {
