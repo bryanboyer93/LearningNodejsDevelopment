@@ -17,3 +17,10 @@ I'll use the arrow function, as shown here:
 
 var duplicateNotes = notes.filter((note) => note.title === title);
 
+nodemon updates the terminal automatically when it detectes changes
+
+Arrow functions to not bind a this keyword. so if you are using a this inside your function, it is not going to work when you swap it out for an arrow function =>
+- this binding; refers to the parent binding, in our case there is no parent function so this would refer to the global this keyword.
+- You won't get the arguments keyword
+
+
