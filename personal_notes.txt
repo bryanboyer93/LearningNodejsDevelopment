@@ -24,3 +24,17 @@ Arrow functions to not bind a this keyword. so if you are using a this inside yo
 - You won't get the arguments keyword
 
 
+ASYNC STUFF (weather app)
+The basic concept of asynchronous program
+Call stack and event loop
+Callback functions and APIs
+HTTPS requests
+
+CALLBACK functions
+ In general, a callback function is defined as a function that gets passed as an argument to another function and is executed after some event happens. 
+
+Download extension JSONview for chrome or firefox
+
+Download
+https://www.npmjs.com/package/request
+
