@@ -38,3 +38,7 @@ Download extension JSONview for chrome or firefox
 Download
 https://www.npmjs.com/package/request
 
+HTTP
+- When you make a request to a website, the data that comes back is the body of the request.
+- Headers are key value pairs: e.g. "date": "Tue, 16 Kan 2018"
+
