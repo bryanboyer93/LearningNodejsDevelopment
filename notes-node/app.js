@@ -33,7 +33,7 @@ const argv = yargs
     
 var command = argv._[0];
 // console.log(`Command: ${command}`);
-// console.log('Yargs', argv);
+console.log('Yargs', argv);
 
 switch (command) {
     case 'add' :

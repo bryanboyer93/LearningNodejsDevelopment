@@ -45,4 +45,8 @@ HTTP
 PART 2 - ASYNC
 - Dark Sky API: Takes location information and turns it into real-world current weather information
 - use of yargs: npm i yargs --save
+- --save updates the package.json file
+- we can get rid of the node modules folder (takes space), then we can regenerate it using npm install
 
+- Encoding URI Component
+> encodeURIComponent('1301 lombard street philadelphia');
