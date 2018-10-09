@@ -42,3 +42,7 @@ HTTP
 - When you make a request to a website, the data that comes back is the body of the request.
 - Headers are key value pairs: e.g. "date": "Tue, 16 Kan 2018"
 
+PART 2 - ASYNC
+- Dark Sky API: Takes location information and turns it into real-world current weather information
+- use of yargs: npm i yargs --save
+
