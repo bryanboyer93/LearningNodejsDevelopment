@@ -14,11 +14,13 @@ const argv = yargs
   .alias('help', 'h') // two arguments, argument, alias
   .argv; // takes config, runs it through args, then restores the result in the argv variable
 
-  console.log(argv);
+  // console.log(argv);
 
+var encodedAddress = encodeURIComponent(argv.address); // can also use argv.a
+var API_KEY = 'AIzaSyB9c2sRN0T2AVtXLCCoCf4tjVUsfIE7CVE';
 
 request({
-    url: 'https://maps.googleapis.com/maps/api/geocode/json?address=1301%20lombard%20street%20philadelphia&key=AIzaSyB9c2sRN0T2AVtXLCCoCf4tjVUsfIE7CVE',
+    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${API_KEY}`,
     json: true
     // you can access the body from response.body as well
   }, (error, response, body) => {
