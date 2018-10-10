@@ -50,3 +50,9 @@ PART 2 - ASYNC
 
 - Encoding URI Component
 > encodeURIComponent('1301 lombard street philadelphia');
+
+
+// console.log(JSON.stringify(body, undefined, 2));
+// To print json object in a pretty way
+// JSON.stringify(body, filter, spacesPerIndentationk)
+      

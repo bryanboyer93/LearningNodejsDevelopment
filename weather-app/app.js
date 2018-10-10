@@ -1,5 +1,7 @@
 const request = require('request');
 const yargs = require('yargs');
+const geocode = require('./geocode/geocode.js');
+
 
 const argv = yargs
   .options( {
@@ -24,16 +26,15 @@ request({
     json: true
     // you can access the body from response.body as well
   }, (error, response, body) => {
-      //   console.log(body);
-      // console.log(JSON.stringify(body, undefined, 2));
-      // To print json object in a pretty way
-      // JSON.stringify(body, filter, spacesPerIndentationk)
-      //console.log(body.results);
-      
-      // console.log(`Address: ${body.results[0].formatted_address}`);
-      // console.log(`Latitude: ${body.results[0].geometry.location.lat}`)
-      // console.log(`Longitude: ${body.results[0].geometry.location.lng}`)
-      
+    if (error) {
+      console.log('Unable to connect to Google Servers');
+    } else if (body.status === 'ZERO_RESULTS') {
+      console.log ('Unable to find that address');
+    } else if ( body.status === 'OK'){
+        
+        console.log(`Address: ${body.results[0].formatted_address}`);
+        console.log(`Latitude: ${body.results[0].geometry.location.lat}`)
+        console.log(`Longitude: ${body.results[0].geometry.location.lng}`)
+    }
   });
-
 //will not work properly under lilly proxy
