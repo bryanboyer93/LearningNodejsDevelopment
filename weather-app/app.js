@@ -1,6 +1,7 @@
 const request = require('request');
 const yargs = require('yargs');
 const geocode = require('./geocode/geocode');
+const weather = require('./weather/weather');
 
 const argv = yargs
   .options({
@@ -24,6 +25,15 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
   }
 });
 
+weather.getWeather(lat, lng, (errorMessage, weatherResults) => {
+  if (errorMessage) {
+    console.log(errorMessage);
+  }
+  else {
+    console.log(JSON.stringify(weatherResults, undefined, 2));
+  }
+});
+
 // EXPLANATION
 // we are calling geocodeAddress that is in the file geocode.js and this takes two arguments, address and a callback function (will return two arguments)
 // the geocodeAddress will fetch some dara with the address then when the data is fetched, it will make a call to the callback function
@@ -32,3 +42,6 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
 // parameters either errorMessage, or results. Depending of what was sent from geocode.js
 // then it will do something with that data.
 // ALL OF THIS IS ASYNC
+
+// 0074ee9810e6613935fcd0e4b1879c82
+// https://api.darksky.net/forecast/[key]/[latitude],[longitude]
