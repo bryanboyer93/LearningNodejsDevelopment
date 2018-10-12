@@ -55,4 +55,10 @@ PART 2 - ASYNC
 // console.log(JSON.stringify(body, undefined, 2));
 // To print json object in a pretty way
 // JSON.stringify(body, filter, spacesPerIndentationk)
-      
+
+
+PROMISES
+- When we make a promise, we're making a promise; we're saying, "Hey, I'll go off and I'll fetch that website data for you.
+- Now when you call reject, you're saying, "Hey, we tried to get that thing done man, but we just could not." 
+- Now you can only pass one argument to both resolve and reject, which means that if you want to provide multiple pieces of information I recommend that you resolve or reject an object that you can set multiple properties on. In our case though, a simple message, Hey. It worked!, will do the job.
+- Now inside a promise, it's important to understand that you can only either resolve or reject a promise once. If you resolve a promise you can't reject it later, and if you resolve it with one value you can't change your mind at a later point in time

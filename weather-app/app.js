@@ -21,18 +21,20 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
   if (errorMessage) {
     console.log(errorMessage);
   } else {
-    console.log(JSON.stringify(results, undefined, 2));
+    console.log(`Address: ${results.address}`);
+    weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {
+      if (errorMessage) {
+        console.log(errorMessage);
+      }
+      else {
+        // console.log(JSON.stringify(weatherResults, undefined, 2));
+        console.log(`It's currently ${weatherResults.temperature}˚F. It feels like ${weatherResults.apparentTemperature}˚F`);
+      }
+    });
   }
 });
 
-weather.getWeather(lat, lng, (errorMessage, weatherResults) => {
-  if (errorMessage) {
-    console.log(errorMessage);
-  }
-  else {
-    console.log(JSON.stringify(weatherResults, undefined, 2));
-  }
-});
+
 
 // EXPLANATION
 // we are calling geocodeAddress that is in the file geocode.js and this takes two arguments, address and a callback function (will return two arguments)
