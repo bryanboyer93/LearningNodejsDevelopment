@@ -18,20 +18,21 @@ var asyncAdd = (a, b) => {
                 resolve (a+b);
             else
                 reject('Arguments must be numbers');
-        },1500)
+        },1000)
     });
 };
 
-asyncAdd(5,7).then ( 
-    // resolve
-    (res) => {
+asyncAdd(5,'7')
+    .then ( (res) => {
         console.log('Result: ', res);
-    },
-    // reject 
-    (errorMessage) => {
+        return asyncAdd(res, 33);
+    })
+    .then ( (res) => {
+        console.log('Should be 45', res);
+    })
+    .catch ( (errorMessage) => {
         console.log(errorMessage);
-    }
-);
+    });
 
 // //
 // oldAsyncAdd(5, 7).then(() => {
