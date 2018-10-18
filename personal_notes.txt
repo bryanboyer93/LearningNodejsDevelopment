@@ -65,3 +65,4 @@ PROMISES
 
 - Weather app with PROMISES
 - Use of axios library
+- Now one reason people love promises over traditional callbacks is that instead of nesting we can simply chain.
