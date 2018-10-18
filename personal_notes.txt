@@ -66,3 +66,7 @@ PROMISES
 - Weather app with PROMISES
 - Use of axios library
 - Now one reason people love promises over traditional callbacks is that instead of nesting we can simply chain.
+
+EXPRESS library
+- The first argument is request (req) stores a ton of information about the request coming in. Things like the headers that were used, any body information, or the method that was made with a request to the path. All of that is stored in request.
+- The second argument, respond (res), has a bunch of methods available so we can respond to the HTTP request in whatever way we like. We can customize what data we send back and we could set our HTTP status codes.
