@@ -12,26 +12,35 @@
 // }));
 
 var asyncAdd = (a, b) => {
-    return new Promise ( (resolve,reject) => {
-        setTimeout( () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             if (typeof a === 'number' && typeof b === 'number')
-                resolve (a+b);
+                resolve(a + b);
             else
                 reject('Arguments must be numbers');
-        },1500)
+        }, 1000)
     });
 };
 
-asyncAdd(5,7).then ( 
+asyncAdd(5, 7).then(
     // resolve
-    (res) => {
-        console.log('Result: ', res);
+    (result) => {
+        console.log('Result: ', result);
+        return asyncAdd(result, 33);
     },
     // reject 
     (errorMessage) => {
         console.log(errorMessage);
-    }
-);
+    }).then((result) => {
+        console.log('Should be 45:', result);
+        return asyncAdd(result, 5);
+    }, (errorMessage) => {
+        console.log(errorMessage);
+    }).then((result) => {
+        console.log('should be 50: ', result);
+    }, (errorMessage) => {
+        console.log(errorMessage);
+    });
 
 // //
 // oldAsyncAdd(5, 7).then(() => {
