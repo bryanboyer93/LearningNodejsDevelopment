@@ -62,3 +62,11 @@ PROMISES
 - Now when you call reject, you're saying, "Hey, we tried to get that thing done man, but we just could not." 
 - Now you can only pass one argument to both resolve and reject, which means that if you want to provide multiple pieces of information I recommend that you resolve or reject an object that you can set multiple properties on. In our case though, a simple message, Hey. It worked!, will do the job.
 - Now inside a promise, it's important to understand that you can only either resolve or reject a promise once. If you resolve a promise you can't reject it later, and if you resolve it with one value you can't change your mind at a later point in time
+
+- Weather app with PROMISES
+- Use of axios library
+- Now one reason people love promises over traditional callbacks is that instead of nesting we can simply chain.
+
+EXPRESS library
+- The first argument is request (req) stores a ton of information about the request coming in. Things like the headers that were used, any body information, or the method that was made with a request to the path. All of that is stored in request.
+- The second argument, respond (res), has a bunch of methods available so we can respond to the HTTP request in whatever way we like. We can customize what data we send back and we could set our HTTP status codes.

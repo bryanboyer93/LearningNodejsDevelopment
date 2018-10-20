@@ -18,6 +18,7 @@ var asyncAdd = (a, b) => {
                 resolve(a + b);
             else
                 reject('Arguments must be numbers');
+<<<<<<< HEAD
         }, 1000)
     });
 };
@@ -40,6 +41,22 @@ asyncAdd(5, 7).then(
         console.log('should be 50: ', result);
     }, (errorMessage) => {
         console.log(errorMessage);
+=======
+        },1000)
+    });
+};
+
+asyncAdd(5,'7')
+    .then ( (res) => {
+        console.log('Result: ', res);
+        return asyncAdd(res, 33);
+    })
+    .then ( (res) => {
+        console.log('Should be 45', res);
+    })
+    .catch ( (errorMessage) => {
+        console.log(errorMessage);
+>>>>>>> 094242038355f77f2cdeba02bd2d3fb5061c6eb5
     });
 
 // //
