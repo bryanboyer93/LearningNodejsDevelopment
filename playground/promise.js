@@ -18,45 +18,20 @@ var asyncAdd = (a, b) => {
                 resolve(a + b);
             else
                 reject('Arguments must be numbers');
-<<<<<<< HEAD
         }, 1000)
     });
 };
 
-asyncAdd(5, 7).then(
-    // resolve
-    (result) => {
-        console.log('Result: ', result);
-        return asyncAdd(result, 33);
-    },
-    // reject 
-    (errorMessage) => {
-        console.log(errorMessage);
-    }).then((result) => {
-        console.log('Should be 45:', result);
-        return asyncAdd(result, 5);
-    }, (errorMessage) => {
-        console.log(errorMessage);
-    }).then((result) => {
-        console.log('should be 50: ', result);
-    }, (errorMessage) => {
-        console.log(errorMessage);
-=======
-        },1000)
-    });
-};
-
-asyncAdd(5,'7')
-    .then ( (res) => {
+asyncAdd(5, '7')
+    .then((res) => {
         console.log('Result: ', res);
         return asyncAdd(res, 33);
     })
-    .then ( (res) => {
+    .then((res) => {
         console.log('Should be 45', res);
     })
-    .catch ( (errorMessage) => {
+    .catch((errorMessage) => {
         console.log(errorMessage);
->>>>>>> 094242038355f77f2cdeba02bd2d3fb5061c6eb5
     });
 
 // //
