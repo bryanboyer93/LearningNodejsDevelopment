@@ -78,8 +78,12 @@ HBS module
 - Now registerHelper takes two arguments:
 > The name of the helper as the first argument
 > The function to run as the second argument.
+- hbs.registerPartials(__dirname + '/views/partials');
+> To register partial views like header or footer
 
 -  In order to pass data into one of our helpers, we first have to reference the helper by name, screamIt, then after a space we can specify whatever data we want to pass in as arguments.
 - In this section, you'll learn how to use Express middleware. Express middleware is a fantastic tool. It allows you to add on to the existing functionality that Express has.
 - app.use is how you register middleware
 - app.use is executed in order
+- app.get
+- app.post

@@ -1,18 +1,27 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const util = require('util');
+
+const bodyParser = require('body-parser');
 
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
+// to be able to use req.body
+app.use(bodyParser.json());
 
+
+// added to all paths or globally
+// Creates a log file and prints the request method and request url to the console
 app.use((req, res, next) => {
     var now = new Date().toString();
     var log = `${now}: ${req.method} ${req.url}`;
 
     console.log(log);
+    // console.log(req.body);
     fs.appendFile('server.log', log + '\n', (err) => {
         if (err) {
             console.log(err);
@@ -21,15 +30,17 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-});
+// Displays a maintenance message and basically stops the app
+// app.use((req, res, next) => {
+    // res.render('maintenance.hbs');
+    //next();
+// });
 
 // __dirname stores the path to the project directory
+// Allows express to use the static files in /public
 app.use(express.static(__dirname + '/public'));
 
-
-
+// registers a helper in hbs. This will be available in the .hbs files
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
 });
