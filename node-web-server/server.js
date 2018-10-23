@@ -5,6 +5,9 @@ const util = require('util');
 
 const bodyParser = require('body-parser');
 
+// If process.env.port does not exist, we'll set port equal to 3000 instead:
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -76,4 +79,4 @@ app.get('/bad', (req, res) => {
     });
 })
 
-app.listen(8080, () => console.log('server is up on port 8080'));
+app.listen(port, () => console.log('server is up on port: ', port));
