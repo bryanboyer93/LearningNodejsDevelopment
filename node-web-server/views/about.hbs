@@ -7,11 +7,10 @@
 </head>
 
 <body>
-    <h1>{{pageTitle}}</h1>
-    <p>Some text here</p>
-    <footer>
-        <p>Copyright {{currentYear}}</p>
-    </footer>
+    {{> header}}
+    {{!-- <h1>{{pageTitle}}</h1> --}}
+    <p>{{lowerIt welcome}}</p>
+    {{> footer}}
 </body>
 
 </html>
