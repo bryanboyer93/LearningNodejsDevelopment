@@ -47,3 +47,16 @@ it('Should set firstName and lastName', () => {
 //     //     age:25
 //     // });
 // });
+it('Should Async add two numbers', (done) => {
+    utils.asyncAdd(4, 3, (sum) => {
+        expect(sum).toBe(7).toBeA('number');
+        done();
+    });
+});
+
+it('Should Async square a number', (done) => {
+    utils.asyncSquare(5,(square) => {
+        expect(square).toBe(25).toBeA('number');
+        done();
+    });
+});
