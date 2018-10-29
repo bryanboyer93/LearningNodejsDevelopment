@@ -133,3 +133,8 @@ STATUS
 - app.get('/', (req, res) => {
   res.status().send('Hello world!');
 });
+
+DESCRIBE()
+describe(). describe is a function injected into our test files, just like the it function is. It comes from mocha and it's really fantastic. Essentially, it lets us group tests together. That makes it a lot easier to scan the test output. 
+> Put all the it() testing functions inside
+> add describe('#methodTobeTested) to specify each function if needed
