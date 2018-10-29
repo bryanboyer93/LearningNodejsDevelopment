@@ -122,3 +122,14 @@ ASSERTIONS
 - Assertion library : mjackson expect
 - npm i expect --save-dev 
 - The toInclude assertion checks if an array or an object includes some things.
+
+SUPERTEST 
+- Library to test express apps
+- then we'll require using require('./server.js'), or just server. Then we'll access the .app property:
+
+
+STATUS
+- To send custom status:
+- app.get('/', (req, res) => {
+  res.status().send('Hello world!');
+});
