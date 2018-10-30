@@ -138,3 +138,25 @@ DESCRIBE()
 describe(). describe is a function injected into our test files, just like the it function is. It comes from mocha and it's really fantastic. Essentially, it lets us group tests together. That makes it a lot easier to scan the test output. 
 > Put all the it() testing functions inside
 > add describe('#methodTobeTested) to specify each function if needed
+
+
+---
+
+One important thing to note: inside ES6, if the property name in an object you're setting is the same as the variable name, you can actually define it like this:
+
+db.saveUser({
+  email,
+  password
+});
+
+SPIES
+The spies function let you swap out a real function such as saveUser for a testing utility. When that test function gets called we can create various assertions about it, making sure it was called with certain arguments. Let's start exploring that.
+comes built in with expect
+
+EXPECT
+npm install expect@1.20.2 --save-dev
+
+
+REWIRE
+npm module called rewire, which lets us swap out variables for our tests.
+
